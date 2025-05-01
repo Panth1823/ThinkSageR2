@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,33 +8,33 @@
 
 @layer base {
   :root {
-    --background: 210 50% 98%;
-    --foreground: 210 50% 10%;
+    --background: 220 70% 10%;
+    --foreground: 220 10% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 210 50% 10%;
+    --card: 220 70% 13%;
+    --card-foreground: 220 10% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 50% 10%;
+    --popover: 220 70% 13%;
+    --popover-foreground: 220 10% 95%;
 
-    --primary: 210 100% 50%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 196 100% 50%;
+    --primary-foreground: 220 10% 95%;
 
-    --secondary: 210 30% 96%;
-    --secondary-foreground: 210 50% 10%;
+    --secondary: 220 30% 20%;
+    --secondary-foreground: 220 10% 95%;
 
-    --muted: 210 30% 96%;
-    --muted-foreground: 210 40% 40%;
+    --muted: 220 30% 20%;
+    --muted-foreground: 220 20% 70%;
 
-    --accent: 210 30% 96%;
-    --accent-foreground: 210 50% 10%;
+    --accent: 40 90% 60%;
+    --accent-foreground: 220 70% 10%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 220 10% 95%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 210 100% 50%;
+    --border: 220 30% 25%;
+    --input: 220 30% 25%;
+    --ring: 196 100% 50%;
 
     --radius: 0.5rem;
 
@@ -62,26 +63,97 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-brand-500 text-white hover:bg-brand-600 px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-none font-mono uppercase text-sm tracking-wider border border-primary transition-all duration-300 relative overflow-hidden after:absolute after:inset-0 after:bg-white after:opacity-0 after:hover:opacity-20 after:transition-opacity;
   }
 
   .btn-secondary {
-    @apply bg-white text-brand-600 border border-brand-300 hover:border-brand-500 px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5;
+    @apply bg-secondary text-secondary-foreground border border-primary hover:border-accent px-6 py-3 rounded-none font-mono uppercase text-sm tracking-wider transition-all duration-300 relative overflow-hidden after:absolute after:inset-0 after:bg-white after:opacity-0 after:hover:opacity-10 after:transition-opacity;
   }
 
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 relative;
+  }
+
+  .section-grid {
+    @apply absolute inset-0 pointer-events-none z-0 opacity-10 bg-grid-pattern;
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-brand-800 text-center;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-foreground text-center uppercase;
   }
 
   .section-subtitle {
-    @apply text-xl text-brand-600 max-w-3xl mx-auto text-center mb-12;
+    @apply text-xl text-primary/80 max-w-3xl mx-auto text-center mb-12 font-light;
   }
 
-  .card {
-    @apply bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300;
+  .blueprint-card {
+    @apply bg-card p-6 rounded-none border border-primary/30 hover:border-primary transition-all duration-300 relative z-10 overflow-hidden;
   }
+
+  .blueprint-card::before {
+    @apply content-[''] absolute top-0 right-0 h-10 w-10 border-t-2 border-r-2 border-primary opacity-70;
+  }
+
+  .blueprint-card::after {
+    @apply content-[''] absolute bottom-0 left-0 h-10 w-10 border-b-2 border-l-2 border-primary opacity-70;
+  }
+  
+  .card {
+    @apply blueprint-card;
+  }
+
+  .blueprint-grid {
+    @apply absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none;
+  }
+
+  .text-mono {
+    @apply font-mono tracking-tight;
+  }
+
+  .architectural-border {
+    @apply relative before:absolute before:top-0 before:left-0 before:w-4 before:h-4 before:border-t-2 before:border-l-2 before:border-primary 
+           after:absolute after:bottom-0 after:right-0 after:w-4 after:h-4 after:border-b-2 after:border-r-2 after:border-primary;
+  }
+}
+
+@layer utilities {
+  .bg-grid-pattern {
+    background-image: linear-gradient(to right, rgba(var(--primary) / 0.1) 1px, transparent 1px), 
+                      linear-gradient(to bottom, rgba(var(--primary) / 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .text-shadow {
+    text-shadow: 0 0 10px rgba(var(--primary) / 0.5);
+  }
+}
+
+@keyframes construct {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes draw-line {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-construct {
+  animation: construct 0.5s ease-out forwards;
+}
+
+.animate-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-line 2s ease-out forwards;
 }

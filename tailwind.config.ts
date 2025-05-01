@@ -63,18 +63,14 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom brand colors
-				brand: {
-					50: '#E6F4FF',
-					100: '#BADDFF',
-					200: '#8DC6FF',
-					300: '#5FAEFF',
-					400: '#3196FF',
-					500: '#007FFF', // Primary brand color
-					600: '#0066CC',
-					700: '#004C99',
-					800: '#003366',
-					900: '#001933',
+				// Blueprint theme colors
+				blueprint: {
+					navy: '#0a1528',
+					cyan: '#00BFFF',
+					amber: '#FFA500',
+					dark: '#081020',
+					light: '#f0f8ff',
+					grid: '#1a2540',
 				},
 			},
 			borderRadius: {
@@ -118,6 +114,32 @@ export default {
 						opacity: '0',
 						transform: 'translateY(10px)'
 					}
+				},
+				'construct': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'draw-line': {
+					'0%': {
+						'stroke-dashoffset': '1000'
+					},
+					'100%': {
+						'stroke-dashoffset': '0'
+					}
+				},
+				'blueprint-scan': {
+					'0%': {
+						backgroundPosition: '0% 0%'
+					},
+					'100%': {
+						backgroundPosition: '100% 100%'
+					}
 				}
 			},
 			animation: {
@@ -125,10 +147,22 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.3s ease-out',
 				'fade-out': 'fade-out 0.3s ease-out',
+				'construct': 'construct 0.5s ease-out forwards',
+				'draw-line': 'draw-line 2s ease-out forwards',
+				'blueprint-scan': 'blueprint-scan 10s infinite alternate'
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
-				heading: ['Montserrat', 'sans-serif']
+				heading: ['Montserrat', 'sans-serif'],
+				mono: ['JetBrains Mono', 'monospace']
+			},
+			backgroundImage: {
+				'grid-pattern': 'linear-gradient(to right, rgba(0, 191, 255, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 191, 255, 0.1) 1px, transparent 1px)'
+			},
+			backgroundSize: {
+				'grid-large': '40px 40px',
+				'grid-medium': '20px 20px',
+				'grid-small': '10px 10px'
 			}
 		}
 	},
