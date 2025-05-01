@@ -52,7 +52,7 @@ const ProblemSolutionSection = () => {
                   <div>
                     <h5 className="font-mono text-foreground mb-2">SLOW PERFORMANCE</h5>
                     <p className="text-sm text-foreground/70">
-                      Sites that take >3 seconds to load lose 53% of mobile visitors. Bloated code and unoptimized assets create structural weaknesses.
+                      Sites that take {'>'}3 seconds to load lose 53% of mobile visitors. Bloated code and unoptimized assets create structural weaknesses.
                     </p>
                     <div className="mt-3 h-1 w-full bg-secondary">
                       <div className="h-full bg-destructive/60" style={{width: '75%'}}></div>
