@@ -72,7 +72,7 @@ const CtaSection = () => {
   return (
     <section
       id="contact"
-      className="py-20 bg-secondary/40 relative overflow-hidden"
+      className="py-20 bg-[#0e1016] relative overflow-hidden"
     >
       {" "}
       {/* Added overflow-hidden */}

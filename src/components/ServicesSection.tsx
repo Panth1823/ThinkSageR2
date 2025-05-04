@@ -177,7 +177,7 @@ const ServicesSection = () => {
   }, [hoveredService]);
 
   return (
-    <section id="services" className="py-20 bg-background relative">
+    <section id="services" className="py-20 bg-[#0e1016] relative">
       <div className="blueprint-grid"></div>
       
       <div className="container relative z-10">

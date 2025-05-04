@@ -66,7 +66,7 @@ const servicesData = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-20 bg-[#1a1a2e] relative overflow-hidden">
+    <section id="services" className="py-20 bg-[#0e1016] relative overflow-hidden">
       {/* Background grid */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 

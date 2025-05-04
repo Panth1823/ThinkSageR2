@@ -292,19 +292,6 @@ const HeroSection = () => {
                 <p className="text-sm text-gray-300">Architecture & best practices</p>
               </div>
             </div>
-
-            {/* Tech stack section */}
-            <div ref={techIconsRef} className="mt-12">
-              <div className="mb-2 font-mono text-xs text-blue-400 uppercase">
-                TECH EXPERTISE
-              </div>
-              <div className="flex items-center space-x-8">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="h-8 w-8 grayscale brightness-200 opacity-80" />
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" className="h-8 w-8 grayscale brightness-200 opacity-80" />
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" alt="Tailwind CSS" className="h-8 w-8 grayscale brightness-200 opacity-80" />
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" className="h-8 w-8 grayscale brightness-200 opacity-80" />
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>

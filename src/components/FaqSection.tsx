@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { HelpCircle } from 'lucide-react';
 import {
@@ -38,7 +37,7 @@ const faqs = [
 
 const FaqSection = () => {
   return (
-    <section id="faq" className="py-20 bg-background relative">
+    <section id="faq" className="py-20 bg-[#0e1016] relative">
       <div className="blueprint-grid"></div>
       
       <div className="container max-w-4xl relative z-10">

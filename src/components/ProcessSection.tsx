@@ -74,7 +74,7 @@ const ProcessSection = () => {
   }, [activeStep]);
 
   return (
-    <section id="process" className="py-20 bg-secondary/30 relative">
+    <section id="process" className="py-20 bg-[#0e1016] relative">
       <div className="blueprint-grid"></div>
       
       <div className="container relative z-10">
