@@ -1,54 +1,77 @@
-
-import React, { useState } from 'react';
+import gsap from "gsap";
+import React, { useState, useEffect, useRef } from 'react';
 import { CalendarCheck, CheckCircle } from 'lucide-react';
 
 const processSteps = [
   {
     number: "01",
-    title: "Discovery",
-    description: "Initial consultation to understand project requirements, objectives, and architectural challenges.",
-    timeline: "1-2 days",
-    icon: "📐"
+    title: "Discovery Call",
+    description: "Initial consultation to understand your career goals, challenges, and aspirations.",
+    timeline: "1 day",
+    icon: "📞"
   },
   {
     number: "02",
-    title: "Wireframing",
-    description: "Development of structural wireframes and architectural planning documents for approval.",
-    timeline: "3-5 days",
-    icon: "✏️"
+    title: "Resume & Profile Audit",
+    description: "In-depth review of your resume, LinkedIn, and personal brand to identify improvement areas.",
+    timeline: "1-2 days",
+    icon: "📄"
   },
   {
     number: "03",
-    title: "Foundation",
-    description: "Core development of HTML structure, accessibility features, and fundamental components.",
-    timeline: "1-2 weeks",
-    icon: "🏗️"
+    title: "Personalized Action Plan",
+    description: "Receive a step-by-step plan for resume, cover letter, LinkedIn, and job search strategy.",
+    timeline: "2-3 days",
+    icon: "📝"
   },
   {
     number: "04",
-    title: "Structure",
-    description: "Implementation of functional elements, interactive components, and dynamic features.",
-    timeline: "1-2 weeks",
-    icon: "🔨"
+    title: "Interview Preparation",
+    description: "Mock interviews, feedback, and confidence-building to help you ace real interviews.",
+    timeline: "2-5 days",
+    icon: "🎤"
   },
   {
     number: "05",
-    title: "Finishing",
-    description: "Visual refinement, animation implementation, and comprehensive cross-device testing.",
-    timeline: "3-5 days",
-    icon: "🎨"
+    title: "Offer & Negotiation",
+    description: "Guidance on evaluating offers, negotiating salary, and making the right career move.",
+    timeline: "1-2 days",
+    icon: "💼"
   },
   {
     number: "06",
-    title: "Handover",
-    description: "Project delivery, documentation, training, and initial maintenance period.",
-    timeline: "1 day + ongoing",
-    icon: "🔑"
+    title: "Success Handover",
+    description: "Celebrate your new job! Get onboarding tips and ongoing support for your next chapter.",
+    timeline: "Ongoing",
+    icon: "🎉"
   }
 ];
 
 const ProcessSection = () => {
   const [activeStep, setActiveStep] = useState<number | null>(null);
+  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    // GSAP staggered entrance for steps
+    gsap.fromTo(
+      stepRefs.current,
+      { opacity: 0, y: 40 },
+      { opacity: 1, y: 0, duration: 0.7, stagger: 0.15, ease: "power3.out" }
+    );
+  }, []);
+
+  useEffect(() => {
+    // GSAP hover microinteraction for step
+    if (activeStep !== null && stepRefs.current[activeStep]) {
+      gsap.to(stepRefs.current[activeStep], { scale: 1.04, borderColor: '#3B82F6', boxShadow: '0 0 16px #3B82F6AA', duration: 0.22, ease: 'power2.out' });
+    }
+    // Reset all others
+    stepRefs.current.forEach((step, idx) => {
+      if (step && idx !== activeStep) {
+        gsap.to(step, { scale: 1, borderColor: '#3B82F64D', boxShadow: '0 0 0px #0000', duration: 0.22, ease: 'power2.inOut' });
+      }
+    });
+  }, [activeStep]);
 
   return (
     <section id="process" className="py-20 bg-secondary/30 relative">
@@ -76,7 +99,8 @@ const ProcessSection = () => {
             {processSteps.map((step, index) => (
               <div 
                 key={index} 
-                className="relative" 
+                ref={el => stepRefs.current[index] = el}
+                className="relative"
                 onMouseEnter={() => setActiveStep(index)}
                 onMouseLeave={() => setActiveStep(null)}
               >

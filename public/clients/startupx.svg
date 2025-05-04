@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M25 25L50 10L75 25L50 40Z" stroke="#3B82F6" stroke-width="2" fill="none"/>
+  <text x="85" y="32" font-family="monospace" font-size="18" fill="#3B82F6">STARTUPX</text>
+</svg> 

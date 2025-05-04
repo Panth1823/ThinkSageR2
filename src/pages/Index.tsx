@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
@@ -8,10 +7,13 @@ import AboutSection from '@/components/AboutSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import ProcessSection from '@/components/ProcessSection';
 import PortfolioSection from '@/components/PortfolioSection';
+import ClientsSection from '@/components/ClientsSection'; // Added import
+import AchievementsSection from '@/components/AchievementsSection'; // Added import
 import PricingSection from '@/components/PricingSection';
 import FaqSection from '@/components/FaqSection';
 import CtaSection from '@/components/CtaSection';
 import Footer from '@/components/Footer';
+import CourseSection from '@/components/CourseSection';
 
 const Index = () => {
   // Easter egg: Hidden measuring tool that responds to mouse movement
@@ -102,10 +104,13 @@ const Index = () => {
       <Header />
       <main className="flex-grow">
         <HeroSection />
+        <CourseSection />
         <ProblemSolutionSection />
         <ServicesSection />
         <ProcessSection />
         <PortfolioSection />
+        <ClientsSection /> {/* Added ClientsSection */}
+        <AchievementsSection /> {/* Added AchievementsSection */}
         <TestimonialsSection />
         <AboutSection />
         <PricingSection />

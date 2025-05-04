@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M20 25h20M60 25h20" stroke="#3B82F6" stroke-width="2"/>
+  <path d="M40 10v30M60 10v30" stroke="#3B82F6" stroke-width="2"/>
+  <text x="90" y="32" font-family="monospace" font-size="16" fill="#3B82F6">DIGITALFORGE</text>
+</svg> 
